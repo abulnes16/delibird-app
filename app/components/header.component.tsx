@@ -1,6 +1,11 @@
+/* Header component
+   Renders the login header of the app
+*/
+// React
 import React from 'react';
-import { Layout, Text, useTheme } from '@ui-kitten/components';
 import { StyleSheet } from 'react-native';
+// UI Kitten
+import { Layout, Text, useTheme } from '@ui-kitten/components';
 
 const Header = () => {
   const theme = useTheme();

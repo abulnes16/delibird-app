@@ -1,5 +1,5 @@
 /* Loading screen
-   Renders a loader to indicates that the app is loading
+   Renders a loader to indicates that the app is loading some data
 */
 
 import React, { useEffect } from 'react';

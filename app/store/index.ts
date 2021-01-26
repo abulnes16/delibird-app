@@ -1,7 +1,7 @@
 /* Store module
    Configures the application state
 */
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
 function mockReducer() {}
 const store = createStore(mockReducer);

@@ -1,9 +1,13 @@
 /* Login screen
    Log an user in the application
 */
+
+// React
 import React from 'react';
-import { Layout, Input, Button, Text } from '@ui-kitten/components';
 import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+//UI Kitten
+import { Layout, Input, Button, Text } from '@ui-kitten/components';
+//Components
 import Header from '../../components/header.component';
 import SocialButton from '../../components/atoms/social-button.component';
 
