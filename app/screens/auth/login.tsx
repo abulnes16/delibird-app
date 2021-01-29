@@ -4,14 +4,28 @@
 
 // React
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //UI Kitten
 import { Layout, Input, Button, Text } from '@ui-kitten/components';
 //Components
 import Header from '../../components/header.component';
 import SocialButton from '../../components/atoms/social-button.component';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
+  const dispatch = useDispatch();
+
+  const fakeLogin = async () => {
+    try {
+      await AsyncStorage.setItem('userToken', 'tokenfalso');
+      dispatch({ type: 'SIGN_IN', payload: 'tokenfalso' });
+      navigation.navigate('App');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Layout style={styles.container}>
       <Header />
@@ -20,7 +34,7 @@ const LoginScreen = () => {
           <KeyboardAvoidingView>
             <Input style={styles.input} placeholder="Correo" />
             <Input style={styles.input} placeholder="Contraseña" />
-            <Button style={styles.btn} status="info">
+            <Button style={styles.btn} status="info" onPress={fakeLogin}>
               Inicia Sesión
             </Button>
           </KeyboardAvoidingView>

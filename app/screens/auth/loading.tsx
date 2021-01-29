@@ -12,7 +12,7 @@ const LoadingScreen = (props: any) => {
   useEffect(() => {
     const waitForLogin = () => {
       setTimeout(() => {
-        props.navigation.navigate('Login');
+        props.navigation.push('Login');
       }, 2000);
     };
     waitForLogin();
