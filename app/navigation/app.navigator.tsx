@@ -3,8 +3,8 @@
 */
 
 // React
-import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
 
 // Navigators
@@ -13,24 +13,7 @@ import HomeNavigator from './home/home.navigator';
 
 const RootNavigator = createStackNavigator();
 
-const AppNavigation = (props: any): React.ReactElement => {
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-    const userLogged = async () => {
-      try {
-        const userToken = await AsyncStorage.getItem('userToken');
-        if (userToken) {
-          setToken(userToken);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    userLogged();
-  }, []);
-
+const AppNavigation = (): React.ReactElement => {
   return (
     <RootNavigator.Navigator screenOptions={{ headerShown: false }}>
       <RootNavigator.Screen name="Auth" component={AuthNavigator} />

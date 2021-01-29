@@ -13,14 +13,14 @@ import { Layout, Input, Button, Text } from '@ui-kitten/components';
 import Header from '../../components/header.component';
 import SocialButton from '../../components/atoms/social-button.component';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = (props: any) => {
   const dispatch = useDispatch();
 
   const fakeLogin = async () => {
     try {
       await AsyncStorage.setItem('userToken', 'tokenfalso');
       dispatch({ type: 'SIGN_IN', payload: 'tokenfalso' });
-      navigation.navigate('App');
+      props.navigation.navigate('App');
     } catch (err) {
       console.log(err);
     }
